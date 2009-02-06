@@ -76,6 +76,7 @@ public class JarSignMojoConfig implements SignConfig {
         
         signJar.setAlias( getAlias() );
         signJar.setKeypass( getKeypass() );
+        signJar.setMaxMemory( getMaxMemory() );
         signJar.setKeystore( getKeystore() );
         signJar.setSkipAttachSignedArtifact( true );
         signJar.setSigFile( getSigfile() );
@@ -134,6 +135,8 @@ public class JarSignMojoConfig implements SignConfig {
     
     
     private KeystoreConfig keystoreConfig;
+    
+    private String maxMemory;
     
     /**
      */
@@ -208,6 +211,10 @@ public class JarSignMojoConfig implements SignConfig {
         this.keystoreConfig = keystoreConfig;
     }
 
+    public void setMaxMemory( String maxMemory ) {
+        this.maxMemory = maxMemory;
+    }
+
     public void setKeystore( String keystore ) {
         this.keystore = keystore;
     }
@@ -274,6 +281,10 @@ public class JarSignMojoConfig implements SignConfig {
 
     public void setVerify( boolean verify ) {
         this.verify = verify;
+    }
+    
+    public String getMaxMemory() {
+        return maxMemory;
     }
 
     public String getKeystore() {
